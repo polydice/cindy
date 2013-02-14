@@ -11,7 +11,7 @@ module Cindy
     end
 
     def subscribe(list_id, email, name = nil)
-      response = connection.post "/subscribe" do |req|
+      response = connection.post "subscribe" do |req|
         params = {list: list_id, email: email, boolean: true}
         params[:name] = name if name
         req.body = params
@@ -21,13 +21,13 @@ module Cindy
     end
 
     def unsubscribe(list_id, email)
-      response = connection.post "/unsubscribe", {list: list_id, email: email, boolean: true}
+      response = connection.post "unsubscribe", {list: list_id, email: email, boolean: true}
 
       !!(response.body =~ /^1$/)
     end
 
     def subscription_status(list_id, email)
-      response = connection.post "/api/subscribers/subscription-status.php" do |req|
+      response = connection.post "api/subscribers/subscription-status.php" do |req|
         req.body = {list_id: list_id, email: email, api_key: @key}
       end
 
@@ -35,7 +35,7 @@ module Cindy
     end
 
     def active_subscriber_count(list_id)
-      response = connection.post "/api/subscribers/active-subscriber-count.php" do |req|
+      response = connection.post "api/subscribers/active-subscriber-count.php" do |req|
         req.body = {list_id: list_id, api_key: @key}
       end
 
