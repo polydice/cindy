@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.version       = Cindy::VERSION
   gem.authors       = ["Richard Lee"]
   gem.email         = ["rl@polydice.com"]
-  gem.description   = %q{A lightweight, flexible Ruby SDK for Sendy, a self-hosted email newsletter app.}
+  gem.description   = %q{A lightweight and flexible Ruby SDK for Sendy, a self-hosted email newsletter app.}
   gem.summary       = %q{Simple Ruby wrapper for Sendy API.}
   gem.homepage      = "https://github.com/polydice/cindy"
 
