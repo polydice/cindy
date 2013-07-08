@@ -3,6 +3,7 @@
 A lightweight and flexible Ruby SDK for Sendy, a self-hosted email newsletter app.
 
 [![Build Status](https://secure.travis-ci.org/polydice/cindy.png)](http://travis-ci.org/polydice/cindy)
+[![Code Climate](https://codeclimate.com/github/polydice/cindy.png)](https://codeclimate.com/github/polydice/cindy)
 
 ## Installation
 
