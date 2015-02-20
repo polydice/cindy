@@ -10,6 +10,23 @@ module Cindy
       @key = api_key || ENV['SENDY_API_KEY']
     end
 
+    def create_campaign(opts={})
+      post_opts     = {}
+      req_opts      = %i(from_name from_email reply_to subject html_text)
+      optional_opts = %i(plain_text list_ids brand_id send_campaign)
+
+      req_opts.each do |opt|
+        post_opts[opt] = opts.delete(opt) || raise(ArgumentError, "opt :#{opt} required")
+      end
+      post_opts.merge!(Hash[optional_opts.zip(opts.values_at(*optional_opts))])
+
+      response = connection.post "api/campaigns/create.php" do |req|
+        req.body = post_opts
+      end
+
+      response.body
+    end
+
     def subscribe(list_id, email, name = nil)
       response = connection.post "subscribe" do |req|
         params = {list: list_id, email: email, boolean: true}
