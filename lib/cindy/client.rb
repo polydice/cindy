@@ -19,6 +19,7 @@ module Cindy
         post_opts[opt] = opts.delete(opt) || raise(ArgumentError, "opt :#{opt} required")
       end
       post_opts.merge!(Hash[optional_opts.zip(opts.values_at(*optional_opts))])
+      post_opts[:api_key] = @key
 
       response = connection.post "api/campaigns/create.php" do |req|
         req.body = post_opts
