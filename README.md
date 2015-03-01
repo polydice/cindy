@@ -86,10 +86,11 @@ Optional parameters:
 
 plain_text, list_ids, brand_id, send_campaign
 
-To create New campaign:
+To create new campaign:
 
 ```ruby
 > c.create_campaign { api_key: API_KEY, from_name: "foo", from_email: "foo@bar.com", reply_to: "foo@bar.com", subject: "Hello, world", html_text: "<h1>Hello, world</h1>" }
+=> Campaign created
 ```
 
 ## Contributing
