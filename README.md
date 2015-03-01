@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-The API of Cindy was basically implemented after Sendy's API doc.
+The API of Cindy was basically implemented after Sendy's API [doc](http://sendy.co/api).
 
 ### Client
 
@@ -75,6 +75,22 @@ To get active subscriber count of a list:
 ```
 
 The only required parameter here is list ID.
+
+### Create Campaign
+
+Parameters:
+
+api_key, from_name, from_email, reply_to, subject, html_text
+
+Optional parameters:
+
+plain_text, list_ids, brand_id, send_campaign
+
+To create New campaign:
+
+```ruby
+> c.create_campaign { api_key: API_KEY, from_name: "foo", from_email: "foo@bar.com", reply_to: "foo@bar.com", subject: "Hello, world", html_text: "<h1>Hello, world</h1>" }
+```
 
 ## Contributing
 
