@@ -1,28 +1,10 @@
 # Cindy
 
-A lightweight and flexible Ruby SDK for Sendy, a self-hosted email newsletter app.
-
-[![Build Status](https://travis-ci.org/polydice/cindy.png?branch=master)](https://travis-ci.org/polydice/cindy)
-[![Code Climate](https://codeclimate.com/github/polydice/cindy.png)](https://codeclimate.com/github/polydice/cindy)
-[![Coverage Status](https://coveralls.io/repos/polydice/cindy/badge.png)](https://coveralls.io/r/polydice/cindy)
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'cindy'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install cindy
+A lightweight and flexible Ruby SDK for [Sendy](http://sendy.co), a self-hosted email newsletter app.
 
 ## Usage
 
-The API of Cindy was basically implemented after Sendy's API [doc](http://sendy.co/api).
+The API of Cindy was basically implemented after [Sendy's API documentation](http://sendy.co/api).
 
 ### Client
 
@@ -42,61 +24,43 @@ There're two parameters for initialize method:
 Then you can subscribe or unsubscribe from a list:
 
 ```ruby
-> c.subscribe 1, "foo@bar.com", "Foo Bar"
+> c.subscribe list_id, "foo@bar.com", "My Name"
 => true
-> c.unsubscribe 1, "foo@bar.com"
+> c.unsubscribe list_id, "foo@bar.com"
 => false
 ```
-
-The parameters are:
-
-1. List ID - You can find them under list management page.
-2. Email - Email to subscribe or unsubscribe from the list
-3. Name - Optional, used only for subscribe
 
 ### Subscription Status
 
 To check subscription status for Email address:
 
 ```ruby
-> c.subscription_status 3, "foo@bar.com"
+> c.subscription_status list_id, "foo@bar.com"
 => "Unsubscribed"
 ```
-
-The parameters are list ID and Email.
 
 ### Active Subscriber Count
 
 To get active subscriber count of a list:
 
 ```ruby
-> c.active_subscriber_count 5
+> c.active_subscriber_count list_id
 => 1660
 ```
 
-The only required parameter here is list ID.
-
 ### Create Campaign
-
-Parameters:
-
-api_key, from_name, from_email, reply_to, subject, html_text
-
-Optional parameters:
-
-plain_text, list_ids, brand_id, send_campaign
 
 To create new campaign:
 
 ```ruby
-> c.create_campaign { api_key: API_KEY, from_name: "foo", from_email: "foo@bar.com", reply_to: "foo@bar.com", subject: "Hello, world", html_text: "<h1>Hello, world</h1>" }
+> c.create_campaign from_name: "foo", from_email: "foo@bar.com", reply_to: "foo@bar.com", subject: "Hello, world", html_text: "<h1>Hello, world</h1>"
 => Campaign created
 ```
 
-## Contributing
+### More Reference
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+Check [Sendy's API documentation](http://sendy.co/api) to learn more about parameters and possible responses.
+
+## License
+
+MIT License. Copyright 2013-2015 Polydice, Inc. http://polydice.com/

@@ -1,4 +1,4 @@
-Copyright (c) 2013 Richard Lee
+Copyright (c) 2014-2015 Polydice, Inc. http://polydice.com
 
 MIT License
 
